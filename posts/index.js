@@ -34,7 +34,14 @@ app.post("/posts", async (req, res) => {
     },
   });
 
-  req.statusCode(201).send(posts[id]);
+  res.status(201).send(posts[id]);
+});
+
+//Handler for events from bus
+app.post("/events", (req, res) => {
+  console.log("Received Event", req.body.type);
+
+  res.send({});
 });
 
 app.listen(4000, () => {

@@ -22,7 +22,7 @@ app.post("/events", (req, res) => {
   }
 
   //Handle comment events
-  if (type === "Comments") {
+  if (type === "CommentCreated") {
     const { id, content, postId } = data;
     const post = posts[postId];
     post.comments.push({ id, content });
